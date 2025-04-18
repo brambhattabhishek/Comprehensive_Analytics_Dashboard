@@ -135,5 +135,6 @@ NEWSAPI_KEY=your-newsapi-key
 ALPHA_VANTAGE_API_KEY=your-alpha-vantage-api-key
 NEXTAUTH_SECRET=your-nextauth-secret
 ```
-[Watch Demo Video on Google Drive](https://drive.google.com/file/d/1SnkIs-IHLI4O2Sdmx1XJJTjKh8_5vXLM/view?usp=sharing)
+[![Watch the video](https://img.youtube.com/vi/mc7Bm2txh0E/maxresdefault.jpg)](https://youtu.be/mc7Bm2txh0E)
+
 
