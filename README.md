@@ -116,7 +116,7 @@ npm run dev
 
 The project is deployed on Vercel/Netlify for seamless CI/CD integration. Once pushed to the main branch, automated tests run, and the app is deployed.
 
-Live demo: [link-to-deployed-app](https://your-deployed-app.vercel.app)
+Live demo: [link-to-deployed-app](https://tiny-peony-fd4430.netlify.app/)
 
 ## Environment Variables
 
@@ -134,4 +134,6 @@ OPENWEATHERMAP_API_KEY=your-openweathermap-api-key
 NEWSAPI_KEY=your-newsapi-key
 ALPHA_VANTAGE_API_KEY=your-alpha-vantage-api-key
 NEXTAUTH_SECRET=your-nextauth-secret
+```
+[Watch Demo Video on Google Drive](https://drive.google.com/file/d/1SnkIs-IHLI4O2Sdmx1XJJTjKh8_5vXLM/view?usp=sharing)
 
