@@ -144,26 +144,9 @@ export function Footer() {
             &copy; {new Date().getFullYear()} ModernApp. All rights reserved.
           </p>
           <div className="flex items-center gap-4">
+            
             <a
-              href="https://twitter.com"
-              className="text-muted-foreground hover:text-foreground"
-              aria-label="Twitter"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="h-5 w-5"
-              >
-                <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z" />
-              </svg>
-            </a>
-            <a
-              href="https://github.com"
+              href="https://github.com/brambhattabhishek"
               className="text-muted-foreground hover:text-foreground"
               aria-label="GitHub"
             >
@@ -182,7 +165,7 @@ export function Footer() {
               </svg>
             </a>
             <a
-              href="https://linkedin.com"
+              href="https://www.linkedin.com/in/abhishek-brahmbhatt-4a5ba2290/"
               className="text-muted-foreground hover:text-foreground"
               aria-label="LinkedIn"
             >
