@@ -1,4 +1,3 @@
-
 import { useState, useRef, useEffect } from "react";
 import { Search, Bell, User, Settings, ChevronDown, LogOut, Moon, Sun } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
@@ -49,6 +48,7 @@ export function DashboardHeader({ toggleTheme, isDarkMode }: DashboardHeaderProp
   const handleLogout = () => {
     logout();
     toast.success("Logged out successfully");
+    navigate('/'); 
   };
 
   return (

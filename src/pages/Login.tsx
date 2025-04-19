@@ -21,31 +21,34 @@ export default function Login() {
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
-    
-    // Mock authentication - in a real app, this would call an API
+  
     try {
       // Simulate API call delay
       await new Promise(resolve => setTimeout(resolve, 1000));
-      
+  
       // Simple validation
       if (!email || !password) {
         toast.error("Please enter both email and password");
+        setIsLoading(false); // Stop loading
         return;
       }
-      
-      // Store authentication state in localStorage
+  
+      // Mock successful authentication
       localStorage.setItem("isAuthenticated", "true");
       localStorage.setItem("user", JSON.stringify({ email }));
-      
+  
       toast.success("Login successful!");
+      
+      // Navigate to dashboard
       navigate("/dashboard");
     } catch (error) {
-      toast.error("Login failed. Please try again.");
-      console.error("Login error:", error);
+      console.error("Login failed:", error);
+      toast.error("Something went wrong during login.");
     } finally {
-      setIsLoading(false);
+      setIsLoading(false); // Always stop loading after try/catch
     }
   };
+  
 
   return (
     <div className="min-h-screen flex items-center justify-center p-4 bg-muted/30">
@@ -212,6 +215,7 @@ export default function Login() {
               </svg>
               Facebook
             </Button>
+            
           </div>
         </form>
       </div>

@@ -1,6 +1,5 @@
-
 import { useState, useEffect, createContext, useContext, ReactNode } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 interface User {
   email: string;
@@ -23,34 +22,37 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
-    // Check if user is authenticated on mount
     const checkAuth = () => {
       const storedAuth = localStorage.getItem('isAuthenticated');
       const storedUser = localStorage.getItem('user');
-      
+
       if (storedAuth === 'true' && storedUser) {
-        setUser(JSON.parse(storedUser));
+        const parsedUser = JSON.parse(storedUser);
+        setUser(parsedUser);
         setIsAuthenticated(true);
+
+        // If user is on login or register page, redirect to dashboard
+        if (location.pathname === '/' || location.pathname === '/login' || location.pathname === '/register') {
+          navigate('/dashboard');
+        }
       }
+
       setIsLoading(false);
     };
-    
+
     checkAuth();
-  }, []);
+  }, [location.pathname, navigate]);
 
   const login = async (email: string, password: string) => {
     setIsLoading(true);
     try {
-      // Simulate API call
       await new Promise(resolve => setTimeout(resolve, 1000));
-      
-      // In a real app, you'd validate credentials with an API
       const user = { email };
       localStorage.setItem('isAuthenticated', 'true');
       localStorage.setItem('user', JSON.stringify(user));
-      
       setUser(user);
       setIsAuthenticated(true);
       navigate('/dashboard');
@@ -65,14 +67,10 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const register = async (name: string, email: string, password: string) => {
     setIsLoading(true);
     try {
-      // Simulate API call
       await new Promise(resolve => setTimeout(resolve, 1000));
-      
-      // In a real app, you'd register with an API
       const user = { name, email };
       localStorage.setItem('isAuthenticated', 'true');
       localStorage.setItem('user', JSON.stringify(user));
-      
       setUser(user);
       setIsAuthenticated(true);
       navigate('/dashboard');
@@ -89,7 +87,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     localStorage.removeItem('user');
     setUser(null);
     setIsAuthenticated(false);
-    navigate('/login');
+    navigate('/');
   };
 
   return (
